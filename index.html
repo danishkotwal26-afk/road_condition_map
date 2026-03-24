@@ -38,6 +38,16 @@
       </div>
     </div>
 
+    <!-- ADD ROAD BUTTON -->
+    <div id="add-road-section">
+      <button id="draw-btn">
+        <span id="draw-btn-icon">✏️</span> Add Road Segment
+      </button>
+      <button id="export-btn" title="Download updated roads.json">
+        📥 Export JSON
+      </button>
+    </div>
+
     <div id="filter-section">
       <p class="section-label">FILTER BY CONDITION</p>
       <div id="filter-buttons">
@@ -65,19 +75,39 @@
     </div>
 
     <div id="sidebar-footer">
-      <span id="refresh-status">⟳ Auto-refreshing every 30s</span>
+      <span id="refresh-status">⟳ Auto-refresh 30s</span>
       <button id="refresh-btn" title="Refresh now">↻</button>
     </div>
   </div>
 
   <div id="map-container">
     <div id="map"></div>
+
+    <!-- DRAW TOOLBAR (shown only in draw mode) -->
+    <div id="draw-toolbar" class="hidden">
+      <span id="draw-toolbar-title">📍 Drawing segment</span>
+      <div id="cond-pills">
+        <button class="cond-pill active" data-cond="good">Good</button>
+        <button class="cond-pill" data-cond="medium">Fair</button>
+        <button class="cond-pill" data-cond="bad">Bad</button>
+      </div>
+      <div id="draw-actions">
+        <button id="undo-point-btn" title="Undo last point">↩ Undo</button>
+        <button id="save-segment-btn">✅ Save</button>
+        <button id="cancel-draw-btn">✕ Cancel</button>
+      </div>
+    </div>
+
     <div id="map-overlay-legend">
       <span class="legend-item"><span class="legend-dot good"></span> Good</span>
       <span class="legend-item"><span class="legend-dot medium"></span> Fair</span>
       <span class="legend-item"><span class="legend-dot bad"></span> Bad</span>
     </div>
+
     <div id="loading-indicator" class="hidden">Loading…</div>
+
+    <!-- TOAST NOTIFICATION -->
+    <div id="toast" class="hidden"></div>
   </div>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
